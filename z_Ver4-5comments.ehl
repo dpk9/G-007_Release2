@@ -1,0 +1,95 @@
+//v4.5 12-10-2008
+int hmstat,fpos,afstat,fpstat;
+
+##mh
+hmstat=2			//Set the status of the homing program to running so PolonatorScan knows the status
+SP=100000			//Set stage velocity
+fpos=ui[1]			//Variable in nonvolatile memory used to store focus position in counts
+mo=0
+um=2				//Motion controller set to speed mode
+rm=0				//If you are not using the auxiliary referencing option, set rm=0
+ag[2]=200000		//Sets the gain of the feedback loop 200000 is standard
+mo=1
+JV=-100000			//Jog at velosity -100000
+BG
+while(!IB[11])		//When you hit the negative limit stop
+	if (!MO)
+		hmstat=-12	//If motor is off home failed set hmstat to error code -12 and exit
+		exit
+	end if
+end while
+HM[2]= 0			//When home sensor reached set position value to 0
+HM[3]= 3			//Homing process event definition [2]
+HM[1]= 1			//Arm the homing process
+JV=100000			//Jog at velosity 100000
+BG
+while(HM[1])		//Execute until homing process is complete 
+	if (!MO)		//If motor off home failed set hmstat to error code -13, exit
+		hmstat=-13
+		exit
+	end if
+	if (ib[10])		//If positive limit hit home failed set hmstat to error code -14, exit
+		hmstat=-14
+		exit
+	end if
+end while
+gotofpos()			//Start the function to move to the focus position, fpos
+hmstat=1			//Set the status of the homing program to complete
+autofocus()			//Start the autofocus function
+exit
+
+function autofocus()		//This function runs continously 
+	global int afstat, fpos
+	afstat=1				//Autofocus status not in tracking mode
+	while(1)				//Execute until killed with a kl command
+		if (!ib[19])		//If focus signal active  led
+			gotofpos()		//Start the function to move to the focus position, fpos
+			rm=1			//Use autofocus input signal to close loop 
+			afstat=2		//Autofocus status in tracking mode
+			while (!ib[19])	
+			end while
+			afstat=1		//Autofocus status not in tracking mode
+		end if
+		if (afstat==1)
+			afstat=0		//Autofocus status go to focus position, fpos
+			gotofpos()		//Start the function to move to the focus position, fpos
+		end if
+	end while
+return
+
+function gotofpos()			//Function to move to the focus position, fpos
+global int fpos,fpstat
+rm=0						//If you are not using the auxiliary referencing option, set rm=0
+fpstat=2					//Go to focus status running
+if(fpos>px)					//If focus position above current position jog positive
+	JV=100000				//Jog at velosity 100000
+	bg
+	while(fpos>px)			//While focus position is above current position jog positive
+		if (!MO)			//If motor off focus position failed set fpstat to error code -15, exit
+			fpstat=-15
+			exit				
+		end if
+		if (ib[10])			//If positive limit hit focus position failed set fpstat to error code -16, exit
+			fpstat=-16
+			exit
+		end if	
+	end while
+	st						//Stop at or near focus position
+end if
+if(fpos<px)					//If focus position below current position jog negative
+	JV=-100000				//Jog at velosity -100000
+	bg
+	while(fpos<px)			//While focus position is below current position jog negative
+		if (!MO)			//If motor off focus position failed set fpstat to error code -15, exit
+			fpstat=-17
+			exit				
+		end if
+		if (ib[11])			//If negative limit hit focus position failed set fpstat to error code -16, exit
+			fpstat=-18
+			exit
+		end if	
+	end while
+	st						//Stop at or near focus position
+end if
+fpstat=1					//Go to focus status complete
+return

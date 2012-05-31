@@ -1,0 +1,98 @@
+//v4.3 12-08-2008
+int hmstat,hmpos,fpos,afstat;
+
+##mh
+hmstat=2			//Set the status of the homing program to running so PolonatorScan knows the status
+SP=100000			//Set stage velocity
+afstat=-1			//Set the status of autofocus to -1
+fpos=ui[1]			//Variable in nonvolatile memory used to store focus position in counts
+mo=0
+um=5				//Sets motion controller drive configuration to Single loop position control
+ag[2]=200000		//Sets the gain of the feedback loop 200000 is standard
+mo=1
+JV=-100000			//Jog at velosity -100000
+BG
+while(!IB[11])		//When you hit the negative limit stop
+	if (!MO)
+		hmstat=-12	//If motor is off home failed set hmstat to error code -12 and exit
+		exit		
+	end if
+end while
+HM[2]= 0			//When home sensor reached set position value to 0
+HM[3]= 3			//Homing process event definition [2]
+HM[1]= 1			//Arm the homing process
+JV=100000			//Jog at velosity 100000
+BG
+while(HM[1])		//Execute until homing process is complete 
+	if (!MO)		//If motor off home failed set hmstat to error code -13, exit
+		hmstat=-13
+		exit
+	end if
+	if (ib[10])		//If positive limit hit home failed set hmstat to error code -14, exit
+		hmstat=-14
+		exit
+	end if
+end while
+   hmstat=abmv()	//Run abmv and set hmstat to return value
+if (hmstat != 2)	//If error in abmv exit
+	exit
+end if
+hmstat=1			//Set the status of the homing program to complete
+autofocus()			//Start the autofocus function
+exit
+
+function autofocus()		//This function runs continously 
+	global int afstat
+	while(1)				//Execute until killed with a kl command
+		if (!ib[19])		
+			afstat=2
+			if (um==2)		//If motion controller in speed mode switch to single loop position control
+				mo=0		//Must turn motor off to switch controller um modes
+				um=5		//Motion controller set to single loop position control
+				wait(70)	//WHY IS THIS NEEDED WE MUST JUSTIFY
+				mo=1		//Turn motor on
+				wait(20)	//WHY IS THIS NEEDED WE MUST JUSTIFY
+			end if	
+			afstat=abmv()	//Run abmv and set afstat to return value
+			mo=0			//Must turn motor off to switch controller um modes
+			um=2			//Motion controller set to speed mode
+			rm=1			//Use autofocus input signal to close loop 
+			wait(70)		//WHY IS THIS NEEDED WE MUST JUSTIFY
+			mo=1
+			wait(100)		//WHY IS THIS NEEDED WE MUST JUSTIFY
+			afstat=0		//Set autofocus status to 0
+			while (!ib[19])
+			end while
+			afstat=1		//Set autofocus status to 1
+		end if
+		
+		if (afstat==1)
+			if (um==2)
+				mo=0
+				um=5
+				wait(70)	//WHY IS THIS NEEDED WE MUST JUSTIFY
+				mo=1
+				wait(20)	//WHY IS THIS NEEDED WE MUST JUSTIFY
+			end if	
+			afstat=abmv()
+		end if	
+	end while		
+return
+
+
+function [int mst]= abmv()
+global int fpos
+	pa=fpos
+	bg
+	while(ms!=0)
+		if (!MO)
+			mst=-15
+			return				
+		end if
+		if (ib[10]||ib[11])
+			mst=-16
+			return
+		end if	
+	end while
+	mst=2
+return

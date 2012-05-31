@@ -1,0 +1,57 @@
+//v4.3 12-08-2008
+int trigwait,hmstat,offset,movedis;
+
+##mh
+hmstat=2
+offset=ui[1]
+mo=1
+il[1]=10
+if(IB[10])
+	jv=-1000
+	bg
+	while(IB[10])
+	end while
+	st
+	jv=1000
+	bg
+	while(!IB[10])
+	end while
+end if
+if(!IB[10])
+	jv=1000
+	bg
+	while(!IB[10])
+	end while
+end if
+il[1]=6
+sp=2000000
+pr=offset
+bg
+while(ms==2)
+	wait(10)
+end while
+hmstat=1
+sflash()
+exit
+
+function sflash()
+int tog,movedis
+movedis=ui[2]
+tog=1
+while (1)
+	if (tog==1)
+		if (ib[19]==1)
+			pr=movedis
+			bg;
+			tog=0
+		end if
+	end if
+	if (tog==0)
+		if(ib[19]==0)
+			pr=movedis*(-1)
+			bg;
+			tog=1
+		end if
+	end if
+end while
+return

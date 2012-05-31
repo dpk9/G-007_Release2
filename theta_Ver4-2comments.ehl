@@ -1,0 +1,51 @@
+//v4.2 12-01-2008
+int hmstat,done;
+
+##mh
+hmstat=2
+mo=1
+il[1]=10
+if (IB[10]==1)
+	pr=-1000
+	bg
+	while(ms==2)
+		wait(10)
+	end while
+end if
+jv=10000
+bg
+while(IB[10]==0)
+end while
+il[1]=6
+mo=0
+px=0
+mo=1
+hmstat=1
+exit
+
+function  gotofilter(int filter)
+	global int done
+	if (filter==0)
+		pa=0
+	end if
+	if (filter==1)
+		pa=8533*5
+	end if
+	if (filter==2)
+		pa=8533*4
+	end if
+	if (filter==3)
+		pa=8533*3
+	end if
+	if (filter==4)
+		pa=8533*2
+	end if
+	if (filter==5)
+		pa=8533*1
+	end if
+	bg
+	while(ms==2)
+		wait(10)
+	end while
+	done=1
+	return

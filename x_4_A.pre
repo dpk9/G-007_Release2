@@ -1,0 +1,110 @@
+ 
+int hmstat,mspd,hmpos,hoff,mstat,iprdy,xrdy,xmc;
+##AUTOEXEC
+mspd=2000000					
+hoff=15366000				
+hmpos=31000000						
+sp=10000000
+exit
+##mh
+mstat=0
+iprdy=0
+xmc=0
+ob[1]=0
+ob[2]=0
+hmstat=1						
+RM=0							
+MO=0
+hmstat=enA()				
+if (hmstat== 1)
+JV=mspd*-1 
+BG			
+while(!IB[11])				
+if (!MO)
+hmstat=-12				
+end if	
+end while
+if (hmstat == 1)
+wait (500)
+HM[2]= hoff					
+HM[3]= 3						
+HM[1]= 1						 
+JV=mspd
+BG			
+while(HM[1])					
+if (!MO)
+hmstat=-13				
+end if
+end while
+if (hmstat == 1)
+wait (500)
+             
+             
+while(MS!=0)
+if (!MO)
+hmstat=-14				
+return
+end if
+end while
+if (hmstat == 1) 
+hmstat=0           
+end if
+end if
+end if
+end if
+exit						
+
+function [int hst]= enA()
+int i
+i=0
+while (!MO && i<3)          
+MO=1						
+i=i+1
+wait (2000)
+end while
+if (!MO)
+hst=-11					
+return
+end if     
+hst=1
+return
+
+function  m320u(int xmv,int dir, int ttime,int nimg,int wlflag)
+global int mstat,iprdy,xrdy,xmc
+int t,i,j,idwl,sto,wt
+mstat=1
+idwl=0
+xrdy=1
+sto=0
+if nimg>1
+wt=36-ttime
+else
+wt=0
+end if
+for j=0:xmv-1
+for i=1:nimg
+while iprdy==0
+end while
+iprdy=0  
+while ms != 0
+end while
+if(wlflag==0)
+ob[2]=1;
+wait 7;
+end if
+ob[1]=1
+wait ttime
+ob[1]=0
+if(wlflag==0)
+ob[2]=0
+end if
+wait wt
+end for
+if j<xmv-1
+pr=65536*dir;
+bg;
+ 
+end if	
+end for
+mstat=0
+return

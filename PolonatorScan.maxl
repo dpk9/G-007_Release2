@@ -1,0 +1,338 @@
+/*
+PolonatorScan.maxl
+
+Performs one imaging scan on the Polonator.  Supports:
+	fluorescence / darkfield
+	single / multiple images per position
+	area / TDI modes
+
+Written by Greg Porreca (Church Lab, Harvard Medical School)
+
+Versions:
+	1.0	12-15-2008 [GP]	Initial release
+	1.1	01-05-2009 [GP] Added support for re-zeroing at each lane; BOTH FLOWCELLS MUST
+						HAVE THE SAME NUMBER OF LANES LOADED
+*/
+
+/*
+REQUIREMENTS:
+Version 1.0 has been tested with and requires:
+X code:			v4.2		x_Ver4-2.ehl			12-01-2008
+Y code:			v4.2		y_Ver4-2.ehl			12-01-2008
+Z code:			v4.5		z_Ver4-5.ehl			12-10-2008
+shutter code:	v4.3		shutter_Ver4-3.ehl		12-08-2008
+theta code:		v4.4		theta_Ver4-4.ehl		12-15-2008
+*/
+
+
+
+/* 	GLOBAL VARIABLE DECLARATIONS; GLOBAL VARIABLES HAVE ALL-UPPERCASE NAMES
+*/
+
+//  these values are used by the acquisition computer to interact with the
+//  motion controller to set parameters and cause it to execute scans
+int NUM_LANES;            // number of lanes to scan in the flowcell
+int NUM_IMGS;             // number of images to collect **per position** for the current scan
+int FILTER;               // filter to use for the current scan
+int INTEGRATION_TIME;     // integration time, in milliseconds, for each image
+int SHUTTER_FLAG;         // flag to switch between darkfield (1) and fluorescence (0) imaging
+int TDI_FLAG;             // flag to switch between TDI (1) and area (0) imaging
+int OFFSET_X[16];          // offset, in counts, for current scan relative to reference scan
+int OFFSET_Y[16];          // offset, in counts, for current scan relative to reference scan
+int FLOWCELL;			  // ID of flowcell to scan; 0 is left, 1 is right
+int START_SCAN;           // set this flag to 1 to start scan; assumes global param vars have been set
+int INTERRUPT_SCAN;       // set this flag to 1 to interrupt a scan and return controller to 'ready' state
+int UPDATE_ORIGINS;       // set this flag to 1 to use values in OFFSET_X/Y to update 'origins' of lanes
+int STATUS;               // == 0 at power up, 1 during homing, 2 upon homing complete, 3 when ready, 4 when scanning 
+
+//  these values are constants initialized at startup and never changed; some come from nonvolatile
+//  registers set at the factory, some are hardcoded in run(), and some are calculated
+int cCENTER_X[2];            // constant; absolute position of lane 0 center in X for calculating scan coords
+int cCENTER_Y[2];            // constant; absolute position of lane 0 center in Y for calculating scan coords
+int cLANE_ORIGINS_X[16];     // constant; absolute positions of lane 'origins' in X, for determinimg offsets
+int cLANE_ORIGINS_Y[16];     // constant; absolute positions of lane 'origins' in Y, for determining offsets
+int cCENTER_ORIGIN_OFFSET;   // constant; distance in X between lane center and 'origin' in fields of view
+int cENCODER_X_RESOLUTION;   // constant; resolution of X-axis encoder in counts per millimeter 204800
+int cENCODER_Y_RESOLUTION;   // constant; resolution of Y-axis encoder in counts per millimeter
+
+
+/* 	CONFIGURATION PARAMETERS; THESE SHOULD NOT BE CHANGED
+UNLESS YOU KNOW WHAT YOU'RE DOING
+*/
+const cLANE_PITCH 6300                  // distance in um in Y between lane centers
+const cROW_POSITIONS 218                // number of positions per row
+const cFOV_WIDTH 320					// width (and height) of field of view in microns
+const cROWS_PER_LANE 10                 // number of scan rows per flowcell lane; used to get from center to scan start position
+
+
+
+
+/* 	run() is called by AUTOEXEC.maxl; this first calls homing
+routines on the X, Y, Z, theta, and shutter axes, then
+loops, waiting for external input (START_SCAN==1) to start a scan 
+*/
+function run()
+	global int STATUS;
+	global int START_SCAN;         
+	global int INTERRUPT_SCAN;
+	global int UPDATE_ORIGINS;
+	global int NUM_LANES;
+	global int OFFSET_X[];
+	global int OFFSET_Y[];
+	global int FILTER;
+	global int NUM_IMGS;
+	global int INTEGRATION_TIME;
+	global int SHUTTER_FLAG;
+	global int TDI_FLAG;
+	global int FLOWCELL;
+	global int cCENTER_X[]; 
+	global int cCENTER_Y[]; 
+	global int cCENTER_ORIGIN_OFFSET;
+	global int cENCODER_X_RESOLUTION;
+	global int cENCODER_Y_RESOLUTION;	
+	int currentStartX, currentStartY; // absolute positions to start the current X scan line
+	int currentLane, currentRow;
+
+	// variable initialization
+	STATUS = 0;
+	INTERRUPT_SCAN = 0;
+	UPDATE_ORIGINS = 0;
+	NUM_LANES = 8;
+	FILTER = 1;
+	NUM_IMGS = 1;
+	INTEGRATION_TIME = 35;
+	SHUTTER_FLAG = 1;
+	TDI_FLAG = 0;
+	FLOWCELL = 0;
+	for(currentLane = 0:15)
+		OFFSET_X[currentLane] = 0;
+		OFFSET_Y[currentLane] = 0;
+	end for //currentLane
+
+	// constant variable initialization
+	cCENTER_X[0] = x.ui[1]; // these values are set at the factory and written to nonvolatile
+	cCENTER_Y[0] = y.ui[1]; // registers on the axes; they specify the absolute position of the
+	cCENTER_X[1] = x.ui[2]; // sample-loading hole on lane 0 of each flowcell and are used to
+	cCENTER_Y[1] = y.ui[2]; // calculate the positions of all lanes
+	cENCODER_X_RESOLUTION = X.ui[3]; // stored as counts/mm
+	cENCODER_Y_RESOLUTION = Y.ui[3];
+	cCENTER_ORIGIN_OFFSET = -5; // distance in X FOV's between loading hole and alignment position
+
+	// home all axes
+	STATUS = 1; // homing
+	homeAxes();
+	STATUS = 2; // homing complete
+
+	// calculate lane origins for alignment software; zero out MUX
+	calculateLaneOrigins();
+	zeroMUX();
+
+	// loop forever, executing scans when commanded
+	while(1)
+		STATUS = 3; // ready to run
+
+		// flag can be set at any time to update origins used by alignment algorithm
+		if(UPDATE_ORIGINS==1)
+			UPDATE_ORIGINS = 0;
+			calculateLaneOrigins();
+		end if
+
+		// flag can be set at any time to start a scan routine
+		if(START_SCAN)
+			STATUS = 4; // running
+
+			// make sure 'STOP' isn't set
+			INTERRUPT_SCAN = 0; 
+
+			// make sure X and Y servos are on
+			X.mo=1;
+			Y.mo=1;
+
+			// select the appropriate filter
+			Theta.done = 0;
+			Theta.xq##gotofilter(FILTER);
+			until(Theta.done==1);
+			Theta.done = 0;
+
+			// if darkfield imaging, turn point illuminator on; otherwise, make sure it's off
+			if(FILTER == 4)
+				illuminatorState(1)
+				SHUTTER_FLAG=0;
+			else
+				illuminatorState(0)
+				SHUTTER_FLAG=1;
+			end if	
+
+			// now, do the scan
+			// iterate over all lanes
+			for currentLane = 0:NUM_LANES-1
+
+			// iterate over all rows in the lane
+				for currentRow = 0:cROW_POSITIONS-1
+
+					// move to starting point in row
+					[currentStartX, currentStartY] = getRowScanStart(currentLane, currentRow, OFFSET_X[(NUM_LANES*FLOWCELL)-1+currentLane], OFFSET_Y[(NUM_LANES*FLOWCELL)-1+currentLane], FLOWCELL);
+					moveStage(currentStartX, currentStartY);
+
+					// execute the X move(s) for the current row
+					X.done = 0; // used to synchronize processes; X sets done to 1 upon completion of functions below
+					if(!TDI_FLAG)
+						// run step-settle row scan routine
+						X.xq##step(cROW_POSITIONS, INTEGRATION_TIME, NUM_IMGS, SHUTTER_FLAG);
+					else
+						// run continuous row scan routine
+						X.xq##tdi(SHUTTER_FLAG);
+					end if
+
+					// wait for X routine to finish (it is running asynchronously)
+					until(X.done==1);
+
+					// check to see if the interrupt flag has been set; if so, exit cleanly
+					// back into the while(1) loop and wait to start next scan
+					if(INTERRUPT_SCAN)
+						INTERRUPT_SCAN = 0;
+						currentRow = cROW_POSITIONS;
+						currentLane = NUM_LANES;
+					end if
+				end for //currentRow
+			end for //currentLane
+
+			// if darkfield imaging, turn point illuminator off now that we're finished
+			if(FILTER == 5)
+				illuminatorState(0)
+			end if
+
+			// reset start_scan flag
+			START_SCAN = 0;
+		end if //START_SCAN
+	end while //(1)
+end function
+
+
+
+/*	Calculates the current position in X and Y as a function of currentRow in currentLane and 
+the offsets set by the alignment routine for the current scan.  Returns absolute positions
+in stage counts.
+*/
+function [int startX, int startY] = getRowScanStart(int currentLane, int currentRow, int offsetX, int offsetY, int flowcell)
+	global int cCENTER_X[];
+	global int cCENTER_Y[];
+	global int cENCODER_X_RESOLUTION;
+	global int cENCODER_Y_RESOLUTION;
+	float calcX, calcY;
+
+	// calculate positions in microns
+	calcX = (-1* ((cROW_POSITIONS / 2) * cFOV_WIDTH));
+	calcY = (-1)*((currentLane * cLANE_PITCH) + (currentRow * cFOV_WIDTH)) + ((cROWS_PER_LANE/2) * cFOV_WIDTH);
+
+	// convert to millimeters
+	calcX = calcX / 1000;
+	calcY = calcY / 1000;
+
+	// convert positions in millimeters to positions in counts (ENCODER_?_RESOLUTION is counts per millimeter)
+	calcX = ((calcX * cENCODER_X_RESOLUTION) + cCENTER_X[flowcell]) + offsetX;
+	calcY = ((calcY * cENCODER_Y_RESOLUTION) + cCENTER_Y[flowcell]) + offsetY;
+
+	// convert to integer return values
+	startX = calcX;
+	startY = calcY;
+end function
+
+
+
+/*	Moves the stage in x and y to the absolute position specified by (x_abs, y_abs), and blocks
+until both axes ms condition == 0.  Position is given in counts.
+*/
+function moveStage(int x_abs, int y_abs)
+
+	// issue move commands
+	Y.pa = y_abs; Y.bg;
+	X.pa = x_abs; X.bg;
+
+	// wait for within position and time settle window on both axes
+	until(X.ms==0);
+	until(Y.ms==0);
+end function	
+
+
+
+/*	Executed at startup to populate arrays which specify the positions used by the
+stage alignment software to 're-zero' the stage before each scan.  These positions
+are in-line with the centers of the lanes in Y (the long axis of the lane) and
+slightly offset from the center of the lane in X towards the front of the flowcell;
+this is to help guarantee the algorithm runs at a position where there are beads present
+*/	
+function calculateLaneOrigins()
+	global int cLANE_ORIGINS_X[];
+	global int cLANE_ORIGINS_Y[];
+	global int cCENTER_ORIGIN_OFFSET;
+	global int cCENTER_X[];
+	global int cCENTER_Y[];
+	global int OFFSET_X[];
+	global int OFFSET_Y[];
+	global int NUM_LANES;
+	global int cENCODER_X_RESOLUTION; // counts per mm
+	global int cENCODER_Y_RESOLUTION; // counts per mm
+	int i;
+	float calcX, calcY; // hold calculated values so intermediate results do not overflow
+
+	// calculate positions in stage counts
+	for i = 0:(NUM_LANES*2)-1
+
+		// X is center lane 0 + current alignment offset + cCENTER_ORIGIN_OFFSET fov's (so we're not right over the hole)
+		calcX = cCENTER_X[i/8] + OFFSET_X[i] + (((cFOV_WIDTH * cCENTER_ORIGIN_OFFSET) / 1000.)*cENCODER_X_RESOLUTION);
+
+		// Y is center lane 0 + current alignment offset + offset of current lane from lane 0
+		calcY = cCENTER_Y[i/8] - ((i * (cLANE_PITCH / 1000.)) * cENCODER_Y_RESOLUTION) + OFFSET_Y[i];
+		cLANE_ORIGINS_X[i] = calcX;
+		cLANE_ORIGINS_Y[i] = calcY;
+	end for
+end function
+
+
+
+/* Use this to turn the darkfield illuminator on and off; 0==off, 1==on
+*/
+function illuminatorState(int state)
+	Theta.ob[2] = state;
+end function
+
+
+
+function homeAxes()
+	// kill programs on all axes
+	X.kl;
+	Y.kl;
+	Z.kl;
+	Theta.kl;
+	Shutter.kl;
+
+	// reset hmstat flags since nothing is homed now
+	X.hmstat=0;
+	Y.hmstat=0;
+	Z.hmstat=0;
+	Theta.hmstat=0;
+	Shutter.hmstat=0;
+
+	// execute homing routines
+	X.xq##mh;
+	Y.xq##mh;
+	Z.xq##mh;
+	Theta.xq##mh;
+
+	// wait for homing complete
+	until(X.hmstat==1); 
+	until(Y.hmstat==1);
+
+	// wait for stage to be in load position before homing shutter
+	Shutter.xq##mh
+	until(Z.hmstat==1);
+	until(Theta.hmstat==1);
+	until(Shutter.hmstat==1);
+end function	
+
+
+
+function zeroMUX()
+	m_dout = 0;
+end function

@@ -1,0 +1,3765 @@
+#0, FREE_VAC, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2
+
+#1, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 4
+
+//v4.4 09-30-2010 TDI
+int hmstat,done,iprdy,xrdy,enrs,mstat;
+float mspd,rspd,fov;
+
+##mh
+hmstat=2
+
+#2, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 10
+
+#3, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 0	
+The size of the command is 4 bytes
+The command pointer is 14
+
+#4, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 16
+
+sp=1000000
+
+#5, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1000000	
+The size of the command is 6 bytes
+The command pointer is 22
+
+#6, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 28
+
+#7, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 158	
+The size of the command is 3 bytes
+The command pointer is 31
+
+#8, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 33
+
+enrs=ui[3]; // 100,000 cnts/mm
+
+#9, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 39
+
+#10, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 171	
+The size of the command is 3 bytes
+The command pointer is 42
+
+#11, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 4	
+The size of the command is 4 bytes
+The command pointer is 46
+
+#12, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 48
+
+fov=uf[1]
+
+#13, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 54
+
+#14, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 170	
+The size of the command is 3 bytes
+The command pointer is 57
+
+#15, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 8	
+The size of the command is 4 bytes
+The command pointer is 61
+
+#16, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 63
+
+MO=0
+
+#17, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 69
+
+#18, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 75
+
+#19, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 78
+
+#20, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 80
+
+int cnt
+cnt=0
+
+#21, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 86
+
+#22, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 9	
+The size of the command is 4 bytes
+The command pointer is 90
+
+#23, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 92
+
+while (!MO && cnt<3)
+
+#24, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 95
+
+#25, UNARY_NOT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 97
+
+#26, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 9	
+The size of the command is 4 bytes
+The command pointer is 101
+
+#27, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 107
+
+#28, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 109
+
+#29, RSLTAND, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 111
+
+#30, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 94	
+The size of the command is 4 bytes
+The command pointer is 115
+
+#31, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 117
+
+	MO=1
+
+#32, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 123
+
+#33, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 129
+
+#34, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 132
+
+#35, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 134
+
+	cnt=cnt+1
+
+#36, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 9	
+The size of the command is 4 bytes
+The command pointer is 138
+
+#37, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 144
+
+#38, ADD, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 146
+
+#39, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 9	
+The size of the command is 4 bytes
+The command pointer is 150
+
+#40, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 152
+
+	wait (2000)
+
+#41, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2000	
+The size of the command is 6 bytes
+The command pointer is 158
+
+#42, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 164
+
+#43, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 167
+
+#44, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 170
+
+#45, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 176
+
+#46, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 179
+
+#47, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 182
+
+#48, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 185
+
+#49, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 187
+
+#50, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 191
+
+#51, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 195
+
+#52, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 199
+
+#53, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 201
+
+end while
+
+#54, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -109	
+The size of the command is 4 bytes
+The command pointer is 205
+
+#55, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 207
+
+if (!MO)
+
+#56, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 210
+
+#57, UNARY_NOT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 212
+
+#58, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 22	
+The size of the command is 4 bytes
+The command pointer is 216
+
+#59, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 218
+
+	hmstat=-10
+
+#60, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -10	
+The size of the command is 6 bytes
+The command pointer is 224
+
+#61, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 0	
+The size of the command is 4 bytes
+The command pointer is 228
+
+#62, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 230
+
+	exit
+
+#63, FREE_VAC, ChangeStack: 0, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 232
+
+#64, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 234
+
+end if
+JV=1000000*(-1);BG
+
+#65, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1000000	
+The size of the command is 6 bytes
+The command pointer is 240
+
+#66, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 246
+
+#67, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 107	
+The size of the command is 3 bytes
+The command pointer is 249
+
+#68, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 255
+
+#69, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 261
+
+#70, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 264
+
+#71, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 266
+
+while(!IB[11])
+
+#72, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 11	
+The size of the command is 6 bytes
+The command pointer is 272
+
+#73, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 101	
+The size of the command is 3 bytes
+The command pointer is 275
+
+#74, UNARY_NOT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 277
+
+#75, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 37	
+The size of the command is 4 bytes
+The command pointer is 281
+
+#76, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 283
+
+	if (!MO)
+
+#77, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 286
+
+#78, UNARY_NOT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 288
+
+#79, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 22	
+The size of the command is 4 bytes
+The command pointer is 292
+
+#80, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 294
+
+		hmstat=-12
+
+#81, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -12	
+The size of the command is 6 bytes
+The command pointer is 300
+
+#82, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 0	
+The size of the command is 4 bytes
+The command pointer is 304
+
+#83, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 306
+
+		exit
+
+#84, FREE_VAC, ChangeStack: 0, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 308
+
+#85, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 310
+
+	end if
+end while
+
+#86, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -44	
+The size of the command is 4 bytes
+The command pointer is 314
+
+#87, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 316
+
+HM[2]= 9765625
+
+#88, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 9765625	
+The size of the command is 6 bytes
+The command pointer is 322
+
+#89, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 328
+
+#90, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 97	
+The size of the command is 3 bytes
+The command pointer is 331
+
+#91, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 333
+
+HM[3]= 3
+
+#92, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 339
+
+#93, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 345
+
+#94, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 97	
+The size of the command is 3 bytes
+The command pointer is 348
+
+#95, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 350
+
+HM[1]= 1
+
+#96, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 356
+
+#97, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 362
+
+#98, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 97	
+The size of the command is 3 bytes
+The command pointer is 365
+
+#99, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 367
+
+JV=1000000*(1);BG
+
+#100, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1000000	
+The size of the command is 6 bytes
+The command pointer is 373
+
+#101, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 379
+
+#102, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 107	
+The size of the command is 3 bytes
+The command pointer is 382
+
+#103, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 388
+
+#104, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 394
+
+#105, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 397
+
+#106, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 399
+
+while(HM[1])
+
+#107, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 405
+
+#108, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 97	
+The size of the command is 3 bytes
+The command pointer is 408
+
+#109, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 48	
+The size of the command is 4 bytes
+The command pointer is 412
+
+#110, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 414
+
+	if (!MO||IB[10])
+
+#111, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 417
+
+#112, UNARY_NOT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 419
+
+#113, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 6 bytes
+The command pointer is 425
+
+#114, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 101	
+The size of the command is 3 bytes
+The command pointer is 428
+
+#115, RSLTOR, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 430
+
+#116, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 22	
+The size of the command is 4 bytes
+The command pointer is 434
+
+#117, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 436
+
+		hmstat=-13
+
+#118, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -13	
+The size of the command is 6 bytes
+The command pointer is 442
+
+#119, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 0	
+The size of the command is 4 bytes
+The command pointer is 446
+
+#120, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 448
+
+		exit
+
+#121, FREE_VAC, ChangeStack: 0, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 450
+
+#122, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 452
+
+	end if
+end while
+
+#123, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -53	
+The size of the command is 4 bytes
+The command pointer is 456
+
+#124, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 458
+
+MO=0
+
+#125, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 464
+
+#126, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 470
+
+#127, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 473
+
+#128, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 475
+
+px=9765625
+
+#129, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 9765625	
+The size of the command is 6 bytes
+The command pointer is 481
+
+#130, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 487
+
+#131, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 140	
+The size of the command is 3 bytes
+The command pointer is 490
+
+#132, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 492
+
+MO=1
+
+#133, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 498
+
+#134, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 504
+
+#135, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 122	
+The size of the command is 3 bytes
+The command pointer is 507
+
+#136, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 509
+
+pa=9765625+(75*enrs);bg
+
+#137, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 9765625	
+The size of the command is 6 bytes
+The command pointer is 515
+
+#138, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 75	
+The size of the command is 6 bytes
+The command pointer is 521
+
+#139, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 4	
+The size of the command is 4 bytes
+The command pointer is 525
+
+#140, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 527
+
+#141, ADD, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 529
+
+#142, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 535
+
+#143, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 129	
+The size of the command is 3 bytes
+The command pointer is 538
+
+#144, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 544
+
+#145, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 550
+
+#146, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 553
+
+#147, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 555
+
+while(MS!=0)
+
+#148, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 124	
+The size of the command is 3 bytes
+The command pointer is 558
+
+#149, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 564
+
+#150, RSLTNE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 566
+
+#151, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 59	
+The size of the command is 4 bytes
+The command pointer is 570
+
+#152, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 572
+
+	wait (200)
+
+#153, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 200	
+The size of the command is 6 bytes
+The command pointer is 578
+
+#154, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 584
+
+#155, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 587
+
+#156, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 590
+
+#157, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 596
+
+#158, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 599
+
+#159, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 602
+
+#160, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 605
+
+#161, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 607
+
+#162, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 611
+
+#163, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 615
+
+#164, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 619
+
+#165, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 621
+
+end while
+
+#166, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -66	
+The size of the command is 4 bytes
+The command pointer is 625
+
+#167, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 627
+
+mspd=UF[2]*UI[3]
+
+#168, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 633
+
+#169, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 170	
+The size of the command is 3 bytes
+The command pointer is 636
+
+#170, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 642
+
+#171, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 171	
+The size of the command is 3 bytes
+The command pointer is 645
+
+#172, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 647
+
+#173, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 6	
+The size of the command is 4 bytes
+The command pointer is 651
+
+#174, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 653
+
+rspd=UF[3]*UI[3]
+
+#175, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 659
+
+#176, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 170	
+The size of the command is 3 bytes
+The command pointer is 662
+
+#177, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 668
+
+#178, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 171	
+The size of the command is 3 bytes
+The command pointer is 671
+
+#179, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 673
+
+#180, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 7	
+The size of the command is 4 bytes
+The command pointer is 677
+
+#181, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 679
+
+sp=mspd
+
+#182, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 6	
+The size of the command is 4 bytes
+The command pointer is 683
+
+#183, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 689
+
+#184, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 158	
+The size of the command is 3 bytes
+The command pointer is 692
+
+#185, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 694
+
+hmstat=1
+
+#186, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 700
+
+#187, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 0	
+The size of the command is 4 bytes
+The command pointer is 704
+
+#188, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 706
+
+exit
+
+#189, FREE_VAC, ChangeStack: 0, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 708
+
+#190, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 710
+
+
+function  tdi(int shflg)
+
+#191, FREE_VAC, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 712
+
+#192, LINK, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 715
+
+#193, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 717
+
+	global int done,iprdy,xrdy,enrs,mstat
+	global float mspd,rspd,fov
+	float lnw
+	mstat=2
+
+#194, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 723
+
+#195, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 5	
+The size of the command is 4 bytes
+The command pointer is 727
+
+#196, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 729
+
+	lnw=(fov*1000000)/1000
+
+#197, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 733
+
+#198, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1000000	
+The size of the command is 6 bytes
+The command pointer is 739
+
+#199, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 741
+
+#200, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1000	
+The size of the command is 6 bytes
+The command pointer is 747
+
+#201, DIV, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 749
+
+#202, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: CMD_BP_RELATIVE,
+Operand 2: 0	
+The size of the command is 4 bytes
+The command pointer is 753
+
+#203, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 755
+
+	ol[1]=1
+
+#204, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 761
+
+#205, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 767
+
+#206, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 127	
+The size of the command is 3 bytes
+The command pointer is 770
+
+#207, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 772
+
+	xrdy=1
+
+#208, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 778
+
+#209, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 3	
+The size of the command is 4 bytes
+The command pointer is 782
+
+#210, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 784
+
+	sp=mspd
+
+#211, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 6	
+The size of the command is 4 bytes
+The command pointer is 788
+
+#212, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 794
+
+#213, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 158	
+The size of the command is 3 bytes
+The command pointer is 797
+
+#214, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 799
+
+	while iprdy==0
+
+#215, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 4 bytes
+The command pointer is 803
+
+#216, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 809
+
+#217, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 811
+
+#218, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 4 bytes
+The command pointer is 815
+
+#219, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 817
+
+	end while
+
+#220, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -18	
+The size of the command is 4 bytes
+The command pointer is 821
+
+#221, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 823
+
+	iprdy=0
+
+#222, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 829
+
+#223, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 2	
+The size of the command is 4 bytes
+The command pointer is 833
+
+#224, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 835
+
+	if(shflg==1)
+
+#225, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -6	
+The size of the command is 4 bytes
+The command pointer is 839
+
+#226, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 845
+
+#227, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 847
+
+#228, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 72	
+The size of the command is 4 bytes
+The command pointer is 851
+
+#229, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 853
+
+		ob[2]=1;
+
+#230, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 859
+
+#231, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 865
+
+#232, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 868
+
+#233, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 870
+
+		wait 7;
+
+#234, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 7	
+The size of the command is 6 bytes
+The command pointer is 876
+
+#235, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 882
+
+#236, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 885
+
+#237, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 888
+
+#238, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 894
+
+#239, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 897
+
+#240, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 900
+
+#241, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 903
+
+#242, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 905
+
+#243, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 909
+
+#244, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 913
+
+#245, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 917
+
+#246, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 919
+
+	end if
+	oc[2]=px+15000
+
+#247, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 140	
+The size of the command is 3 bytes
+The command pointer is 922
+
+#248, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 15000	
+The size of the command is 6 bytes
+The command pointer is 928
+
+#249, ADD, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 930
+
+#250, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 936
+
+#251, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 126	
+The size of the command is 3 bytes
+The command pointer is 939
+
+#252, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 941
+
+	oc[3]=((lnw/1000000)*enrs)-1
+
+#253, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 4 bytes
+The command pointer is 945
+
+#254, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1000000	
+The size of the command is 6 bytes
+The command pointer is 951
+
+#255, DIV, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 953
+
+#256, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 4	
+The size of the command is 4 bytes
+The command pointer is 957
+
+#257, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 959
+
+#258, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 965
+
+#259, SUB, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 967
+
+#260, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 973
+
+#261, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 126	
+The size of the command is 3 bytes
+The command pointer is 976
+
+#262, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 978
+
+	oc[4]=200
+
+#263, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 200	
+The size of the command is 6 bytes
+The command pointer is 984
+
+#264, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 4	
+The size of the command is 6 bytes
+The command pointer is 990
+
+#265, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 126	
+The size of the command is 3 bytes
+The command pointer is 993
+
+#266, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 995
+
+	//oc[5]=218000
+	oc[5]=0
+
+#267, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1001
+
+#268, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 5	
+The size of the command is 6 bytes
+The command pointer is 1007
+
+#269, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 126	
+The size of the command is 3 bytes
+The command pointer is 1010
+
+#270, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1012
+
+	oc[1]=1
+
+#271, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1018
+
+#272, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1024
+
+#273, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 126	
+The size of the command is 3 bytes
+The command pointer is 1027
+
+#274, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1029
+
+	pr=((70*enrs)+30000)
+
+#275, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 70	
+The size of the command is 6 bytes
+The command pointer is 1035
+
+#276, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 4	
+The size of the command is 4 bytes
+The command pointer is 1039
+
+#277, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1041
+
+#278, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 30000	
+The size of the command is 6 bytes
+The command pointer is 1047
+
+#279, ADD, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1049
+
+#280, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1055
+
+#281, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 135	
+The size of the command is 3 bytes
+The command pointer is 1058
+
+#282, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1060
+
+	bg
+
+#283, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1066
+
+#284, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1072
+
+#285, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 1075
+
+#286, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1077
+
+	while (ms!=0)
+
+#287, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 124	
+The size of the command is 3 bytes
+The command pointer is 1080
+
+#288, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1086
+
+#289, RSLTNE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1088
+
+#290, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 4 bytes
+The command pointer is 1092
+
+#291, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1094
+
+	end while
+
+#292, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -17	
+The size of the command is 4 bytes
+The command pointer is 1098
+
+#293, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1100
+
+	oc[1]=0
+
+#294, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1106
+
+#295, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1112
+
+#296, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 126	
+The size of the command is 3 bytes
+The command pointer is 1115
+
+#297, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1117
+
+	if(shflg==1)
+
+#298, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -6	
+The size of the command is 4 bytes
+The command pointer is 1121
+
+#299, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1127
+
+#300, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1129
+
+#301, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 23	
+The size of the command is 4 bytes
+The command pointer is 1133
+
+#302, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1135
+
+		ob[2]=0
+
+#303, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1141
+
+#304, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 1147
+
+#305, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 1150
+
+#306, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1152
+
+	end if
+	sp=rspd
+
+#307, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 7	
+The size of the command is 4 bytes
+The command pointer is 1156
+
+#308, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1162
+
+#309, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 158	
+The size of the command is 3 bytes
+The command pointer is 1165
+
+#310, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1167
+
+	done=1
+
+#311, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1173
+
+#312, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 1	
+The size of the command is 4 bytes
+The command pointer is 1177
+
+#313, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1179
+
+	mstat=1
+
+#314, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1185
+
+#315, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 5	
+The size of the command is 4 bytes
+The command pointer is 1189
+
+#316, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1191
+
+	return
+
+#317, USRSUBRT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1193
+
+#318, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1195
+
+
+function  step(int xmv, int ttime,int nimg,int shflg)
+
+#319, LINK, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 3 bytes
+The command pointer is 1198
+
+#320, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1200
+
+	global int done,iprdy,xrdy,enrs,mstat
+	global float mspd,rspd,fov
+	int i,j,wt
+	mstat=3
+
+#321, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 3	
+The size of the command is 6 bytes
+The command pointer is 1206
+
+#322, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 5	
+The size of the command is 4 bytes
+The command pointer is 1210
+
+#323, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1212
+
+	xrdy=1
+
+#324, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1218
+
+#325, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 3	
+The size of the command is 4 bytes
+The command pointer is 1222
+
+#326, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1224
+
+	sp=rspd
+
+#327, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 7	
+The size of the command is 4 bytes
+The command pointer is 1228
+
+#328, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1234
+
+#329, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 158	
+The size of the command is 3 bytes
+The command pointer is 1237
+
+#330, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1239
+
+	if nimg>1
+
+#331, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -7	
+The size of the command is 4 bytes
+The command pointer is 1243
+
+#332, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1249
+
+#333, RSLTA, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1251
+
+#334, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 28	
+The size of the command is 4 bytes
+The command pointer is 1255
+
+#335, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1257
+
+		wt=36-ttime
+
+#336, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 36	
+The size of the command is 6 bytes
+The command pointer is 1263
+
+#337, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -8	
+The size of the command is 4 bytes
+The command pointer is 1267
+
+#338, SUB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1269
+
+#339, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: CMD_BP_RELATIVE,
+Operand 2: 2	
+The size of the command is 4 bytes
+The command pointer is 1273
+
+#340, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1275
+
+	else
+
+#341, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 18	
+The size of the command is 4 bytes
+The command pointer is 1279
+
+#342, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1281
+
+		wt=0
+
+#343, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1287
+
+#344, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: CMD_BP_RELATIVE,
+Operand 2: 2	
+The size of the command is 4 bytes
+The command pointer is 1291
+
+#345, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1293
+
+	end if
+	pr=30000
+
+#346, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 30000	
+The size of the command is 6 bytes
+The command pointer is 1299
+
+#347, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1305
+
+#348, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 135	
+The size of the command is 3 bytes
+The command pointer is 1308
+
+#349, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1310
+
+	bg
+
+#350, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1316
+
+#351, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1322
+
+#352, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 1325
+
+#353, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1327
+
+	until(ms==0)
+
+#354, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 124	
+The size of the command is 3 bytes
+The command pointer is 1330
+
+#355, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1336
+
+#356, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1338
+
+#357, JNZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1342
+
+#358, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -15	
+The size of the command is 4 bytes
+The command pointer is 1346
+
+#359, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1348
+
+	for j=0:xmv-1
+
+#360, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1354
+
+#361, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -9	
+The size of the command is 4 bytes
+The command pointer is 1358
+
+#362, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1364
+
+#363, SUB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1366
+
+#364, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1369
+
+#365, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1372
+
+#366, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: STACK_IMMEDIATELY,
+Operand 1: 1	Operand 2: 1	
+The size of the command is 7 bytes
+The command pointer is 1379
+
+#367, FORITR, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: CMD_BP_RELATIVE,
+Operand 1: 435	Operand 2: 1	
+The size of the command is 6 bytes
+The command pointer is 1385
+
+#368, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1387
+
+		while ms != 0
+
+#369, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 124	
+The size of the command is 3 bytes
+The command pointer is 1390
+
+#370, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1396
+
+#371, RSLTNE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1398
+
+#372, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 4 bytes
+The command pointer is 1402
+
+#373, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1404
+
+		end while
+
+#374, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -17	
+The size of the command is 4 bytes
+The command pointer is 1408
+
+#375, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1410
+
+		for i=1:nimg
+
+#376, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1416
+
+#377, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -7	
+The size of the command is 4 bytes
+The command pointer is 1420
+
+#378, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1423
+
+#379, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1426
+
+#380, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: STACK_IMMEDIATELY,
+Operand 1: 1	Operand 2: 1	
+The size of the command is 7 bytes
+The command pointer is 1433
+
+#381, FORITR, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: CMD_BP_RELATIVE,
+Operand 1: 278	Operand 2: 0	
+The size of the command is 6 bytes
+The command pointer is 1439
+
+#382, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1441
+
+			while iprdy==0
+
+#383, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 4 bytes
+The command pointer is 1445
+
+#384, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1451
+
+#385, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1453
+
+#386, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 4 bytes
+The command pointer is 1457
+
+#387, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1459
+
+			end while
+
+#388, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -18	
+The size of the command is 4 bytes
+The command pointer is 1463
+
+#389, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1465
+
+			if (i==1)
+
+#390, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 4 bytes
+The command pointer is 1469
+
+#391, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1475
+
+#392, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1477
+
+#393, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 90	
+The size of the command is 4 bytes
+The command pointer is 1481
+
+#394, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1483
+
+				if(shflg==1)
+
+#395, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -6	
+The size of the command is 4 bytes
+The command pointer is 1487
+
+#396, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1493
+
+#397, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1495
+
+#398, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 72	
+The size of the command is 4 bytes
+The command pointer is 1499
+
+#399, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1501
+
+					ob[2]=1;
+
+#400, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1507
+
+#401, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 1513
+
+#402, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 1516
+
+#403, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1518
+
+					wait 7;
+
+#404, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 7	
+The size of the command is 6 bytes
+The command pointer is 1524
+
+#405, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1530
+
+#406, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1533
+
+#407, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 1536
+
+#408, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1542
+
+#409, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1545
+
+#410, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 1548
+
+#411, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 1551
+
+#412, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1553
+
+#413, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1557
+
+#414, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 1561
+
+#415, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 1565
+
+#416, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1567
+
+				end if
+			end if
+			iprdy=0
+
+#417, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1573
+
+#418, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 2	
+The size of the command is 4 bytes
+The command pointer is 1577
+
+#419, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1579
+
+			ob[1]=1
+
+#420, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1585
+
+#421, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1591
+
+#422, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 1594
+
+#423, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1596
+
+			wait ttime
+
+#424, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -8	
+The size of the command is 4 bytes
+The command pointer is 1600
+
+#425, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1606
+
+#426, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1609
+
+#427, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 1612
+
+#428, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1618
+
+#429, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1621
+
+#430, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 1624
+
+#431, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 1627
+
+#432, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1629
+
+#433, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1633
+
+#434, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 1637
+
+#435, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 1641
+
+#436, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1643
+
+			ob[1]=0
+
+#437, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1649
+
+#438, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1655
+
+#439, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 1658
+
+#440, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1660
+
+			wait wt
+
+#441, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 4 bytes
+The command pointer is 1664
+
+#442, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1670
+
+#443, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1673
+
+#444, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 1676
+
+#445, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1682
+
+#446, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1685
+
+#447, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 1688
+
+#448, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 1691
+
+#449, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1693
+
+#450, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1697
+
+#451, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 1701
+
+#452, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 1705
+
+#453, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1707
+
+		end for
+
+#454, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -274	
+The size of the command is 4 bytes
+The command pointer is 1711
+
+#455, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1713
+
+		if(shflg==1)
+
+#456, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -6	
+The size of the command is 4 bytes
+The command pointer is 1717
+
+#457, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1723
+
+#458, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1725
+
+#459, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 23	
+The size of the command is 4 bytes
+The command pointer is 1729
+
+#460, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1731
+
+			ob[2]=0;
+
+#461, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1737
+
+#462, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 1743
+
+#463, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 1746
+
+#464, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1748
+
+		end if
+		if j<xmv-1
+
+#465, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 4 bytes
+The command pointer is 1752
+
+#466, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -9	
+The size of the command is 4 bytes
+The command pointer is 1756
+
+#467, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1762
+
+#468, SUB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1764
+
+#469, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1766
+
+#470, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 44	
+The size of the command is 4 bytes
+The command pointer is 1770
+
+#471, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1772
+
+			pr=(fov*enrs)
+
+#472, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1776
+
+#473, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 4	
+The size of the command is 4 bytes
+The command pointer is 1780
+
+#474, MLT, ChangeStack: 1, OperType1: Int_Type, OperType2: Float_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1782
+
+#475, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1788
+
+#476, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 135	
+The size of the command is 3 bytes
+The command pointer is 1791
+
+#477, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1793
+
+			bg;
+
+#478, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1799
+
+#479, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1805
+
+#480, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 1808
+
+#481, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1810
+
+		end if
+	end for
+
+#482, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -431	
+The size of the command is 4 bytes
+The command pointer is 1814
+
+#483, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1816
+
+	pr=30000
+
+#484, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 30000	
+The size of the command is 6 bytes
+The command pointer is 1822
+
+#485, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1828
+
+#486, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 135	
+The size of the command is 3 bytes
+The command pointer is 1831
+
+#487, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1833
+
+	bg
+
+#488, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1839
+
+#489, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1845
+
+#490, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 66	
+The size of the command is 3 bytes
+The command pointer is 1848
+
+#491, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1850
+
+	until(ms==0)
+
+#492, GET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 124	
+The size of the command is 3 bytes
+The command pointer is 1853
+
+#493, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1859
+
+#494, RSLTE, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1861
+
+#495, JNZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1865
+
+#496, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -15	
+The size of the command is 4 bytes
+The command pointer is 1869
+
+#497, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1871
+
+	sp=rspd
+
+#498, MOV, ChangeStack: 1, OperType1: Float_Type, OperType2: Float_Type,
+AddrMode1: MEM_DIRECT, AddrMode2: ABSENT,
+Operand 1: 7	
+The size of the command is 4 bytes
+The command pointer is 1875
+
+#499, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: -1	
+The size of the command is 6 bytes
+The command pointer is 1881
+
+#500, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 158	
+The size of the command is 3 bytes
+The command pointer is 1884
+
+#501, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1886
+
+	done=1
+
+#502, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1892
+
+#503, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 1	
+The size of the command is 4 bytes
+The command pointer is 1896
+
+#504, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1898
+
+	mstat=1
+
+#505, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1904
+
+#506, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 5	
+The size of the command is 4 bytes
+The command pointer is 1908
+
+#507, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1910
+
+	return
+
+#508, USRSUBRT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1912
+
+#509, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1914
+
+
+function  snap(int ttime, int shflg)
+
+#510, LINK, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 3 bytes
+The command pointer is 1917
+
+#511, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1919
+
+	global int mstat
+	mstat=4
+
+#512, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 4	
+The size of the command is 6 bytes
+The command pointer is 1925
+
+#513, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 5	
+The size of the command is 4 bytes
+The command pointer is 1929
+
+#514, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1931
+
+	if(shflg)
+
+#515, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -6	
+The size of the command is 4 bytes
+The command pointer is 1935
+
+#516, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 72	
+The size of the command is 4 bytes
+The command pointer is 1939
+
+#517, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1941
+
+		ob[2]=1
+
+#518, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 1947
+
+#519, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 1953
+
+#520, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 1956
+
+#521, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1958
+
+		wait(10)
+
+#522, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 6 bytes
+The command pointer is 1964
+
+#523, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1970
+
+#524, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1973
+
+#525, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 1976
+
+#526, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 1982
+
+#527, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 1985
+
+#528, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 1988
+
+#529, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 1991
+
+#530, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 1993
+
+#531, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 1997
+
+#532, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 2001
+
+#533, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 2005
+
+#534, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2007
+
+	end if
+	ob[1]=1
+
+#535, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 2013
+
+#536, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 2019
+
+#537, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 2022
+
+#538, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2024
+
+	wait(ttime)
+
+#539, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -7	
+The size of the command is 4 bytes
+The command pointer is 2028
+
+#540, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 2034
+
+#541, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 2037
+
+#542, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 2040
+
+#543, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 2046
+
+#544, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 2049
+
+#545, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 2052
+
+#546, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 2055
+
+#547, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2057
+
+#548, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 2061
+
+#549, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 2065
+
+#550, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 2069
+
+#551, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2071
+
+	ob[1]=0
+
+#552, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 2077
+
+#553, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 2083
+
+#554, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 2086
+
+#555, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2088
+
+	if(shflg)
+
+#556, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_BP_RELATIVE, AddrMode2: ABSENT,
+Operand 1: -6	
+The size of the command is 4 bytes
+The command pointer is 2092
+
+#557, JZ_EOL, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 72	
+The size of the command is 4 bytes
+The command pointer is 2096
+
+#558, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2098
+
+		ob[2]=0
+
+#559, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 2104
+
+#560, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 6 bytes
+The command pointer is 2110
+
+#561, SET_COMM, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 125	
+The size of the command is 3 bytes
+The command pointer is 2113
+
+#562, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2115
+
+		wait(10)
+
+#563, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 10	
+The size of the command is 6 bytes
+The command pointer is 2121
+
+#564, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 2127
+
+#565, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 2130
+
+#566, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 57	
+The size of the command is 3 bytes
+The command pointer is 2133
+
+#567, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 0	
+The size of the command is 6 bytes
+The command pointer is 2139
+
+#568, MOV, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 3 bytes
+The command pointer is 2142
+
+#569, SYSSUBJ, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_1, AddrMode2: ABSENT,
+Operand 1: 58	
+The size of the command is 3 bytes
+The command pointer is 2145
+
+#570, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: STACK_IMMEDIATELY, AddrMode2: ABSENT,
+Operand 1: 2	
+The size of the command is 3 bytes
+The command pointer is 2148
+
+#571, RSLTB, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2150
+
+#572, JZ, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: 8	
+The size of the command is 4 bytes
+The command pointer is 2154
+
+#573, JMP_EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -21	
+The size of the command is 4 bytes
+The command pointer is 2158
+
+#574, SPADD, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_2, AddrMode2: ABSENT,
+Operand 1: -2	
+The size of the command is 4 bytes
+The command pointer is 2162
+
+#575, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2164
+
+	end if
+	mstat=1
+
+#576, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: CMD_IMMEDIATELY_4, AddrMode2: ABSENT,
+Operand 1: 1	
+The size of the command is 6 bytes
+The command pointer is 2170
+
+#577, MOV, ChangeStack: 1, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: MEM_DIRECT,
+Operand 2: 5	
+The size of the command is 4 bytes
+The command pointer is 2174
+
+#578, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2176
+
+	return
+
+#579, USRSUBRT, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2178
+
+#580, EOL, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2180
+
+#581, FREE_VAC, ChangeStack: 0, OperType1: Int_Type, OperType2: Int_Type,
+AddrMode1: ABSENT, AddrMode2: ABSENT,
+
+The size of the command is 2 bytes
+The command pointer is 2182
+

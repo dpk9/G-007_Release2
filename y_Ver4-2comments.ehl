@@ -1,0 +1,50 @@
+//v4.2 12-01-2008
+int hmstat;
+float mspd,rspd,enrs;
+
+##mh				//Homing function called by PolonatorScan
+hmstat=2			//Set the status of the homing program to running so PolonatorScan knows the status
+sp=2000000			//Set velosity to 2000000
+enrs=UI[3]			//Variable in nonvolatile memory used to store encoder resolution in counts/mm
+MO=0				//Turn motor on
+int cnt				//Variable for the number of times to try commutation
+cnt=0
+while (!MO && cnt<3)//Try to turn the motor if commutation fails try again
+	MO=1
+	cnt=cnt+1
+	wait (2000)
+end while
+if (!MO)			//If motor off commutation failed set hmstat to error code -10, exit
+	hmstat=-10
+	exit
+end if
+JV=2000000*(-1); BG	//Jog at velocity of -2000000
+while(!IB[11])		//When you hit the negative limit stop
+	if (!MO)		//If motor off home failed set hmstat to error code -12, exit
+		hmstat=-12
+		exit		//If there is an error exit
+	end if
+end while
+HM[2]= 20000000		//When home sensor reached set position value to a large positive number 20000000
+HM[3]= 3			//Homing process event definition [2]
+HM[1]= 1			//Arm the homing process
+JV=2000000*(1); BG	//Jog at velocity of 2000000
+while(HM[1])		//When you hit the home sensor stop
+	if (!MO||IB[10])//If motor off or positive limit active home failed set hmstat error code -13, exit
+		hmstat=-13
+		exit		//If there is an error exit
+	end if
+end while
+mspd=UF[2]*UI[3]	//Velosity for scanning, UF[2] is the stored speed in mm/s, not used on y axis
+rspd=UF[3]*UI[3]	//Velosity for return stroke, UF[3] is the stored speed in mm/s, not used on y axis
+hmstat=1			//Set the status of the homing program to complete
+exit
+
+##step				//Function only used for testing Y at Danaher
+int stp,i
+stp=65536			//Set step variable to 65536
+for i=0:10			//Make 10 steps with a 250ms delay
+	pr=stp;bg;
+	wait(250)
+end for
+exit

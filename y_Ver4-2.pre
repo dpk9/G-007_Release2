@@ -1,0 +1,50 @@
+ 
+int hmstat;
+float mspd,rspd,enrs;
+
+##mh
+hmstat=2
+sp=2000000
+enrs=UI[3]
+MO=0
+int cnt
+cnt=0
+while (!MO && cnt<3)
+MO=1
+cnt=cnt+1
+wait (2000)
+end while
+if (!MO)
+hmstat=-10
+exit
+end if
+JV=2000000*(-1); BG
+while(!IB[11])
+if (!MO)
+hmstat=-12
+exit
+end if
+end while
+HM[2]= 20000000
+HM[3]= 3
+HM[1]= 1
+JV=2000000*(1); BG
+while(HM[1])
+if (!MO||IB[10])
+hmstat=-13
+exit
+end if
+end while
+mspd=UF[2]*UI[3]
+rspd=UF[3]*UI[3]
+hmstat=1
+exit
+
+##step
+int stp,i
+stp=65536
+for i=0:10
+pr=stp;bg;
+wait(250)
+end for
+exit

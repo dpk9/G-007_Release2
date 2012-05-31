@@ -1,0 +1,60 @@
+//v4.2 12-01-2008
+int trigwait,hmstat,offset,movedis;
+
+##mh				//Homing function called by PolonatorScan
+hmstat=2			//Set the status of the homing program to running so PolonatorScan knows the status
+offset=ui[1]		//Variable stored in nonvolatile memory used to set offset from home index in counts
+mo=1				//Turn motor on
+il[1]=10
+if(IB[10])			//Check if limit sensor is active
+	jv=-1000		//Jog at velocity of -1000 out of limit
+	bg
+	while(IB[10])	//Wait for limit to be deactivated, then stop
+	end while
+	st
+	jv=1000			//Jog at velocity of 1000 into limit
+	bg
+	while(!IB[10])	//Wait for limit to be activated, then stop
+	end while
+end if
+if(!IB[10])			//Check if limit sensor is inactive
+	jv=1000			//Jog at velocity of 1000 into limit
+	bg
+	while(!IB[10])	//Wait for limit to be activated, then stop
+	end while
+end if
+mo=0				//Turn motor off prior to setting home reference to 0
+px=0				//Set current position to 0
+mo=1 
+il[1]=6				//Set input logic to general purpose
+sp=2000000			//set speed
+pr=offset			//Offset to the position just before shutter starts to open
+bg
+while(ms==2)		//Wait for motion to complete
+	wait(10)
+end while
+hmstat=1			//Set the status of the homing program to complete
+sflash()			//Start the shutter function which is triggered by the x axis
+exit
+
+function sflash()	//This function opens and closes the shutter 
+int tog,movedis
+movedis=ui[1]		//Variable stored in nonvolatile memory used to set shutter travel in counts
+tog=1				//Toggles between shutter open and close
+while (1)			//Loop until killed
+	if (tog==1)
+		if (ib[19]==1)		//If x axis trigger is high open
+			pr=movedis*(-1) //Move in the minus direction
+			bg;
+			tog=0
+		end if
+	end if
+	if (tog==0)
+		if(ib[19]==0)	//If x axis trigger is low close
+			pr=movedis	//Move in the minus direction
+			bg;
+			tog=1
+		end if
+	end if
+end while
+return

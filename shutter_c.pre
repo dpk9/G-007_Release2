@@ -1,0 +1,75 @@
+ 
+ 
+int trigwait,cycmode;
+##mh
+mo=1
+wait(500)
+il[1]=10
+jv=-1000
+bg
+wait(500)
+st
+jv=1000
+bg
+while(!IB[10])				 
+end while
+wait(500)
+mo=0
+px=0
+mo=1
+wait(100)
+il[1]=6
+sp=2000000
+pr=ui[1]
+bg
+cycmode=0
+exit
+
+function sflash(int twait)
+int tog
+global int trigwait
+tog=1
+trigwait=twait
+while (trigwait==1)
+if (tog==1)
+if (ib[19]==1)
+pr=ui[2];
+bg;
+tog=0
+end if
+end if
+if (tog==0)
+if(ib[19]==0)
+pr=-ui[2]
+bg;
+tog=1
+end if
+end if
+end while
+trigwait=0
+return
+
+##fullcycle
+int cpos,i
+cycmode=1
+cpos=dv[3]
+il[1]=6
+for i=0:3
+pa=400
+bg
+wait(100)
+pa=-3100
+bg
+wait(100)
+end
+pa=cpos
+bg
+il[1]=10
+cycmode=0
+exit
+
+##test
+
+sflash(1)
+
+exit

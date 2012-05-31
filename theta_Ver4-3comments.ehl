@@ -1,0 +1,49 @@
+//v4.3 12-08-2008
+int hmstat,done;
+
+##mh				//Homing function called by PolonatorScan
+hmstat=2			//Set the status of the homing program to running so PolonatorScan knows the status
+mo=1				//Turn motor on
+il[1]=10			//Input logic set to simultaneous activation of the hard and soft stop functions 
+if (IB[10])			//Check if home sensor is active
+	pr=-10000		//Move out of the home sensor and wait for motion to finish
+	bg
+	while(ms==2)
+		wait(10)
+	end while
+end if
+jv=10000			//Jog at velocity of 10000 into home sensor
+bg
+while(IB[10]==0)	//Wait for home sensor to be activated, then stop
+end while
+st
+il[1]=6				//Set input logic to general purpose
+hmstat=1			//Set the status of the homing program to complete
+exit
+
+function  gotofilter(int filter)	//This function moves to the various filter positions 
+	global int done					//Variable to tell polonator_scan function gotofilter is finished
+	if (filter==0)					//Move to CY3
+		pa=0
+	end if
+	if (filter==1)					//Move to FAM
+		pa=(8533*5)
+	end if
+	if (filter==2)					//Move to TexasRed
+		pa=(8533*4)
+	end if
+	if (filter==3)					//Move to CY5
+		pa=(8533*3)
+	end if
+	if (filter==4)					//Move to Darkfield "open" position
+		pa=(8533*2)
+	end if
+	if (filter==5)					//Move to Spare "open" position
+		pa=(8533*1)
+	end if
+	bg								//Begin motion and wait for it to stop
+	while(ms==2)
+		wait(10)
+	end while
+	done=1							//Variable done set to 1 gotofilter is finished
+	return

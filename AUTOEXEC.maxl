@@ -1,0 +1,13 @@
+// File Colorado.maxl created 24.11.2008 15:34:43
+// TODO: Global Variables Declaration...
+
+// Entry point of the task.
+function run()
+	// TODO: Global Variables Declaration inside the Function...
+
+	// TODO: Local Variables Declaration...
+
+	// TODO: Add your specialized code here...
+PolonatorScan.run()
+end function
+

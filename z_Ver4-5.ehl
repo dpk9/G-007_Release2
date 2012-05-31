@@ -1,0 +1,95 @@
+//v4.5 12-10-2008
+int hmstat,fpos,afstat,fpstat;
+
+##mh
+hmstat=2
+SP=100000
+fpos=ui[1]
+mo=0
+um=2
+rm=0
+ag[2]=200000
+mo=1
+JV=-100000
+BG
+while(!IB[11])
+	if (!MO)
+		hmstat=-12
+		exit
+	end if
+end while
+HM[2]= 0
+HM[3]= 3
+HM[1]= 1
+JV=100000
+BG
+while(HM[1])
+	if (!MO)
+		hmstat=-13
+		exit
+	end if
+	if (ib[10])
+		hmstat=-14
+		exit
+	end if
+end while
+gotofpos()
+hmstat=1
+autofocus()
+exit
+
+function autofocus()
+	global int afstat, fpos
+	afstat=1
+	while(1)
+		if (!ib[19])
+			gotofpos()
+			rm=1
+			afstat=2
+			while (!ib[19])
+			end while
+			afstat=1
+		end if
+		if (afstat==1)
+			afstat=0
+			gotofpos()
+		end if	
+	end while		
+return
+
+function gotofpos()
+global int fpos,fpstat
+rm=0
+fpstat=2
+if(fpos>px)
+	JV=100000
+	bg
+	while(fpos>px)
+		if (!MO)
+			fpstat=-15
+			exit				
+		end if
+		if (ib[10])
+			fpstat=-16
+			exit
+		end if	
+	end while
+	st
+end if
+if(fpos<px)
+	JV=-100000
+	bg
+	while(fpos<px)
+		if (!MO)
+			fpstat=-17
+			exit				
+		end if
+		if (ib[11])
+			fpstat=-18
+			exit
+		end if	
+	end while
+	st
+end if
+fpstat=1
+return

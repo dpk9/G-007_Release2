@@ -1,0 +1,53 @@
+//v4.2 12-01-2008
+int trigwait,href,cycmode,hmstat,movedis;
+
+##mh
+hmstat=2
+href=0
+mo=1
+il[1]=10
+jv=-1000
+bg
+wait(500)
+st
+jv=1000
+bg
+while(!IB[10])
+end while
+mo=0
+px=0
+mo=1
+il[1]=6
+sp=2000000
+pr=-1400
+bg
+while(ms==2)
+	wait(10)
+end while
+href=dv[3]
+cycmode=0
+hmstat=1
+sflash()
+exit
+
+function sflash()
+int tog,movedis
+movedis=ui[1]
+tog=1
+while (1)
+	if (tog==1)
+		if (ib[19]==1)
+			pr=movedis*(-1)
+			bg;
+			tog=0
+		end if
+	end if
+	if (tog==0)
+		if(ib[19]==0)
+			pr=movedis
+			bg;
+			tog=1
+		end if
+	end if
+end while
+return

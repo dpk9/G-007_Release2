@@ -1,0 +1,55 @@
+VARIABLE DATABASE
+
+#0 VarName: cnt, ProcRef: -1, Type: Integer, VarAddr: 9, NumElem: 1
+
+#1 VarName: done, ProcRef: -1, Type: Integer, VarAddr: 1, NumElem: 1
+
+#2 VarName: enrs, ProcRef: -1, Type: Integer, VarAddr: 4, NumElem: 1
+
+#3 VarName: fov, ProcRef: -1, Type: Floating, VarAddr: 8, NumElem: 1
+
+#4 VarName: hmstat, ProcRef: -1, Type: Integer, VarAddr: 0, NumElem: 1
+
+#5 VarName: iprdy, ProcRef: -1, Type: Integer, VarAddr: 2, NumElem: 1
+
+#6 VarName: mspd, ProcRef: -1, Type: Floating, VarAddr: 6, NumElem: 1
+
+#7 VarName: mstat, ProcRef: -1, Type: Integer, VarAddr: 5, NumElem: 1
+
+#8 VarName: rspd, ProcRef: -1, Type: Floating, VarAddr: 7, NumElem: 1
+
+#9 VarName: xrdy, ProcRef: -1, Type: Integer, VarAddr: 3, NumElem: 1
+
+#10 VarName: shflg, ProcRef: 2, Type: Integer, VarAddr: -6, NumElem: 1
+
+#11 VarName: ttime, ProcRef: 2, Type: Integer, VarAddr: -7, NumElem: 1
+
+#12 VarName: i, ProcRef: 3, Type: Integer, VarAddr: 0, NumElem: 1
+
+#13 VarName: j, ProcRef: 3, Type: Integer, VarAddr: 1, NumElem: 1
+
+#14 VarName: nimg, ProcRef: 3, Type: Integer, VarAddr: -7, NumElem: 1
+
+#15 VarName: shflg, ProcRef: 3, Type: Integer, VarAddr: -6, NumElem: 1
+
+#16 VarName: ttime, ProcRef: 3, Type: Integer, VarAddr: -8, NumElem: 1
+
+#17 VarName: wt, ProcRef: 3, Type: Integer, VarAddr: 2, NumElem: 1
+
+#18 VarName: xmv, ProcRef: 3, Type: Integer, VarAddr: -9, NumElem: 1
+
+#19 VarName: lnw, ProcRef: 4, Type: Floating, VarAddr: 0, NumElem: 1
+
+#20 VarName: shflg, ProcRef: 4, Type: Integer, VarAddr: -6, NumElem: 1
+
+FUNCTION DATABASE
+
+#0 FunName: DummyLabel, FuncAddr: 2, Type: Label, nArgIn: 0, nArgOut: 0, LabelProcRef: -1
+
+#1 FunName: mh, FuncAddr: 4, Type: Label, nArgIn: 0, nArgOut: 0, LabelProcRef: -1
+
+#2 FunName: snap, FuncAddr: 1914, Type: User function, nArgIn: 2, nArgOut: 0, LabelProcRef: -1
+
+#3 FunName: step, FuncAddr: 1195, Type: User function, nArgIn: 4, nArgOut: 0, LabelProcRef: -1
+
+#4 FunName: tdi, FuncAddr: 712, Type: User function, nArgIn: 1, nArgOut: 0, LabelProcRef: -1

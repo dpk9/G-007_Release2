@@ -1,0 +1,50 @@
+ 
+int hmstat,hmpos,done;
+
+##mh
+hmstat=2
+mo=1
+il[1]=10
+if (IB[10])
+pr=-10000
+bg
+while(ms==2)
+wait(10)
+end while
+end if
+jv=10000
+bg
+while(!IB[10])
+end while
+st
+il[1]=6
+hmpos=dv[3]
+hmstat=1
+exit
+
+function  gotofilter(int filter)
+global int hmpos,done
+if (filter==0)
+pr=hmpos-dv[3]
+end if
+if (filter==1)
+pr=hmpos+(8533*5)-dv[3]
+end if
+if (filter==2)
+pr=hmpos+(8533*4)-dv[3]
+end if
+if (filter==3)
+pr=hmpos+(8533*3)-dv[3]
+end if
+if (filter==4)
+pr=hmpos+(8533*2)-dv[3]
+end if
+if (filter==5)
+pr=hmpos+(8533*1)-dv[3]
+end if
+bg
+while(ms==2)
+wait(10)
+end while
+done=1
+return

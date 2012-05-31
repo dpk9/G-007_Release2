@@ -1,0 +1,101 @@
+int hmstat,hmpos,fpos,afstat,afrun,llight;
+
+##mh
+hmstat=2
+SP=100000
+afstat=-1
+fpos=ui[1]
+mo=0
+um=5
+ag[2]=200000
+mo=1
+JV=-100000
+BG
+while(!IB[11])
+if (!MO)
+hmstat=-12
+exit
+end if
+end while
+HM[2]= 0
+HM[3]= 3
+HM[1]= 1
+JV=100000
+BG
+while(HM[1])
+if (!MO)
+hmstat=-13
+exit
+end if
+if (ib[10])
+hmstat=-14
+exit
+end if
+end while
+hmstat=abmv()
+if (hmstat != 2)
+exit
+end if
+hmstat=1
+autofocus()
+exit
+
+function autofocus()
+global int afstat,afrun,llight
+afrun=1
+while(afrun==1)
+		
+if (ib[19]==0)
+llight=0
+afstat=2
+if (um==2)
+mo=0
+um=5
+wait(70)
+mo=1
+wait(20)
+end if	
+afstat=abmv()
+mo=0
+um=2
+rm=1
+wait(70)
+mo=1
+wait(100)
+afstat=0
+while (ib[19]==0 && afrun==1)
+end while
+llight=1
+afstat=1
+end if
+		
+if (afstat==1)
+if (um==2)
+mo=0
+um=5
+wait(70)
+mo=1
+wait(20)
+end if	
+afstat=abmv()
+end if	
+end while		
+return
+
+
+function [int mst]= abmv()
+global int fpos
+pa=fpos
+bg
+while(ms!=0)
+if (!MO)
+mst=-15
+return				
+end if
+if (ib[10]||ib[11])
+mst=-16
+return
+end if	
+end while
+mst=2
+return

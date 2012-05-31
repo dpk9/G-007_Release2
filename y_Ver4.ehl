@@ -1,0 +1,51 @@
+//Copyright Danaher 2008
+int hmstat,mdir;
+int mspd,hmpos,hoff;
+##AUTOEXEC
+mspd=2000000
+mdir=-1
+sp=4000000
+exit
+
+##mh
+hmstat=1
+RM=0
+MO=0
+int cnt
+cnt=0
+while (!MO && cnt<3)
+	MO=1
+	cnt=cnt+1
+	wait (2000)
+end while
+if (!MO)
+	hmstat=-13
+	exit
+end if
+JV=mspd*mdir; BG
+while(!IB[11])
+	if (!MO)
+		hmstat=-12
+		exit
+	end if
+end while
+HM[2]= 20000000
+HM[3]= 3
+HM[1]= 1
+JV=mspd*(mdir*-1); BG
+while(HM[1])
+	if (!MO)
+		hmstat=-13
+		exit
+	end if
+end while
+exit
+
+##step
+int stp,i
+stp=65536
+for i=0:10
+	pr=stp;bg;
+	wait(250)
+end for
+exit

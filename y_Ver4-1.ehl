@@ -1,0 +1,47 @@
+//Copyright Danaher 2008
+int hmstat,mspd;
+##AUTOEXEC
+mspd=(ui[3]*1000000)/uf[1]
+exit
+
+##mh
+hmstat=1
+MO=0
+int cnt
+cnt=0
+while (!MO && cnt<3)
+	MO=1
+	cnt=cnt+1
+	wait (2000)
+end while
+if (!MO)
+	hmstat=-13
+	exit
+end if
+JV=mspd*(-1); BG
+while(!IB[11])
+	if (!MO)
+		hmstat=-12
+		exit
+	end if
+end while
+HM[2]= 20000000
+HM[3]= 3
+HM[1]= 1
+JV=mspd*(1); BG
+while(HM[1])
+	if (!MO||IB[10]==1)
+		hmstat=-13
+		exit
+	end if
+end while
+exit
+
+##step
+int stp,i
+stp=65536
+for i=0:10
+	pr=stp;bg;
+	wait(250)
+end for
+exit

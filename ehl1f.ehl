@@ -1,0 +1,155 @@
+//v4.3 02-25-2009
+int hmstat,done,iprdy,xrdy,enrs,mstat;
+float mspd,rspd,fov;
+
+##mh
+hmstat=2
+sp=2000000
+enrs=ui[3]
+fov=uf[1]
+MO=0
+int cnt
+cnt=0
+while (!MO && cnt<3)
+	MO=1
+	cnt=cnt+1
+	wait (2000)
+end while
+if (!MO)
+	hmstat=-10
+	exit
+end if
+JV=2000000*(-1);BG
+while(!IB[11])
+	if (!MO)
+		hmstat=-12
+		exit
+	end if
+end while
+HM[2]= 20000000
+HM[3]= 3
+HM[1]= 1
+JV=2000000*(1);BG
+while(HM[1])
+	if (!MO||IB[10])
+		hmstat=-13
+		exit
+	end if
+end while
+MO=0
+px=20000000
+MO=1
+pa=20000000+(75*enrs);bg
+while(MS!=0)
+	wait (200)
+end while
+mspd=UF[2]*UI[3]
+rspd=UF[3]*UI[3]
+sp=mspd
+hmstat=1
+exit
+
+function  tdi(int shflg)
+	global int done,iprdy,xrdy,enrs,mstat
+	global float mspd,rspd,fov
+	float lnw
+	mstat=2
+	lnw=(fov*1000000)/1000
+	ol[1]=1
+	xrdy=1
+	sp=mspd
+	while iprdy==0
+	end while
+	iprdy=0
+	if(shflg==1)
+		ob[2]=1;
+		wait 7;
+	end if
+	oc[2]=px+15000
+	oc[3]=((lnw/1000000)*enrs)-1
+	oc[4]=200
+	//oc[5]=218000
+	oc[5]=0
+	oc[1]=1
+	pr=((70*enrs)+30000)
+	bg
+	while (ms!=0)
+	end while
+	oc[1]=0
+	if(shflg==1)
+		ob[2]=0
+	end if
+	sp=rspd
+	done=1
+	mstat=1
+	return
+
+function  step(int xmv, int ttime,int nimg,int shflg)
+	global int done,iprdy,xrdy,enrs,mstat
+	global float mspd,rspd,fov
+	int i,j,wt
+	mstat=3
+	xrdy=1
+	sp=rspd
+	if nimg>1
+		wt=36-ttime
+	else
+		wt=0
+	end if
+	pr=15000
+	bg
+	until(ms==0)
+	for j=0:xmv-1
+		while ms != 0
+		end while
+		for i=1:nimg
+			while iprdy==0
+			end while
+			if (i==1)
+				if(shflg==1)
+					ob[2]=1;
+					wait 7;
+				end if
+			end if
+			iprdy=0
+			ob[1]=1
+			wait ttime
+			ob[1]=0
+			wait wt
+		end for
+		if(shflg==1)
+			ob[2]=0;
+		end if
+		if j<xmv-1
+			pr=(fov*enrs)
+			bg;
+		end if
+	end for
+	pr=15000
+	bg
+	until(ms==0)
+	sp=rspd
+	done=1
+	mstat=1
+	return
+
+function  snap(int ttime, int shflg)
+	global int mstat
+	mstat=4
+	if(shflg)
+		ob[2]=1
+		wait 10
+	end if
+	ob[1]=1
+	wait ttime
+	ob[1]=0
+	wait 10
+	ob[1]=1
+	wait ttime
+	ob[1]=0
+	if(shflg)
+		ob[2]=0
+		wait(10)
+	end if
+	mstat=1
+	return
